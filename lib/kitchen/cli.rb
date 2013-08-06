@@ -42,7 +42,7 @@ module Kitchen
       Kitchen.logger = Kitchen.default_file_logger
       Celluloid.logger = Kitchen.celluloid_file_logger
       @config = Kitchen::Config.new(
-        :loader     => Kitchen::Loader::YAML.new(ENV['KITCHEN_YAML']),
+        :loader     => Kitchen::Loader::Kitchenfile.new(ENV['KITCHEN_YAML']),
         :log_level  => ENV['KITCHEN_LOG'] && ENV['KITCHEN_LOG'].downcase.to_sym,
         :supervised => false
       )
